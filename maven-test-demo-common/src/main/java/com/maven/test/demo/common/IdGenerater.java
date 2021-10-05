@@ -9,4 +9,10 @@ public class IdGenerater {
     public static String generateId() {
         return FastUUID.toString(UUID.randomUUID());
     }
+
+
+    public static String generateNormalId() {
+        return UUID.randomUUID().toString();
+    }
+
 }

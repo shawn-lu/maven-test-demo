@@ -20,6 +20,17 @@
         <!--        <tag>middleware-spring-boot-starter-1.2.11</tag>-->
         <tag>HEAD</tag>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus_releases</id>
+            <url>http://mvn.yonghui.cn/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus_snapshots</id>
+            <url>http://mvn.yonghui.cn/nexus/content/repositories/operation-dev</url>
+        </snapshotRepository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -52,17 +63,24 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.2</version>
+                <configuration>
+                    <providerImplementations>
+                        <git>jgit</git>
+                    </providerImplementations>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>1.9.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>nexus_releases</id>
-            <url>http://mvn.yonghui.cn/nexus/content/groups/yh-prod</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus_snapshots</id>
-            <url>http://mvn.yonghui.cn/nexus/content/groups/yh-dev</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
 
