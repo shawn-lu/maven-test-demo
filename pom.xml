@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.shawn</groupId>
@@ -13,14 +14,27 @@
     </modules>
 
     <scm>
-        <!--        <connection>scm:git:git@gitlab.yonghui.cn:operation-zjjgl/middleware-spring-boot-starter.git</connection>-->
+        <connection>scm:git:git@github.com:shawn-lu/maven-test-demo.git</connection>
         <developerConnection>scm:git:git@github.com:shawn-lu/maven-test-demo.git</developerConnection>
-        <!--        <url>scm:git:git@gitlab.yonghui.cn:operation-zjjgl/middleware-spring-boot-starter.git</url>-->
+        <url>scm:git:git@github.com:shawn-lu/maven-test-demo.git</url>
         <!--        <tag>middleware-spring-boot-starter-1.2.11</tag>-->
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgs>
+                        <compilerArg>-parameters</compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -28,16 +42,27 @@
                 <configuration>
                     <arguments>-DskipTests</arguments>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <tagNameFormat>release_tag_v${version}</tagNameFormat>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
                         <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>1.9</version>
+                        <version>1.11.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
         </plugins>
     </build>
-
+    <distributionManagement>
+        <repository>
+            <id>nexus_releases</id>
+            <url>http://mvn.yonghui.cn/nexus/content/groups/yh-prod</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus_snapshots</id>
+            <url>http://mvn.yonghui.cn/nexus/content/groups/yh-dev</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
+
