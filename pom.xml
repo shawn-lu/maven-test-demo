@@ -5,7 +5,7 @@
     <groupId>com.shawn</groupId>
     <artifactId>maven-test-demo</artifactId>
     <packaging>pom</packaging>
-    <version>1�.0.3-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <modules>
         <module>maven-test-demo-core</module>
         <module>maven-test-demo-common</module>
