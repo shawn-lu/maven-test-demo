@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shawn</groupId>
+    <artifactId>maven-test-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.1-SNAPSHOT</version>
+    <modules>
+        <module>maven-test-demo-core</module>
+        <module>maven-test-demo-common</module>
+        <module>maven-test-demo-deploy</module>
+    </modules>
+
+    <scm>
+        <!--        <connection>scm:git:git@gitlab.yonghui.cn:operation-zjjgl/middleware-spring-boot-starter.git</connection>-->
+        <developerConnection>scm:git:git@github.com:shawn-lu/maven-test-demo.git</developerConnection>
+        <!--        <url>scm:git:git@gitlab.yonghui.cn:operation-zjjgl/middleware-spring-boot-starter.git</url>-->
+        <!--        <tag>middleware-spring-boot-starter-1.2.11</tag>-->
+      <tag>HEAD</tag>
+  </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <arguments>-DskipTests</arguments>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
