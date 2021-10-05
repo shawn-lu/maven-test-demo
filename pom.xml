@@ -27,6 +27,7 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <arguments>-DskipTests</arguments>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
                 <dependencies>
                     <dependency>
